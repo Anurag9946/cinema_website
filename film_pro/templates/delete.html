@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    input[type=submit] {
+      background-color: #02B81D;
+      border-radius:20px;
+      color: white;
+      padding: 12px 28px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      text-align: center;
+      justify-content: center;
+
+    }
+    .alert {
+      padding: 40px;
+      background-color: #FB3A1F;
+      color: white;
+      width: 93%;
+      text-align: center;
+      justify-content: center;
+    }
+    .btn {
+      color: white;
+      padding: 12px 28px;
+      cursor: pointer;
+      border-radius:20px;
+    }
+    .warning {background-color:#FAC840;}
+    .warning:hover {background: #e68a00;}
+
+</style>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <h2 style="text-align: center">Alert !</h2>
+    <div class="alert">
+        <strong>Danger!</strong>  are you sure to delete  ?&nbsp;<input type="submit" value="delete"><br><br>
+        <a href="{% url 'filmapp:index' %}" style="color:white; text-align:center;">back to movielist <i class="fa fa-backward"></i></a><br><br>
+    </div>
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+

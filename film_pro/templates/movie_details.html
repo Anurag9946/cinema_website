@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends 'base.html'  %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details_page</title>
+    <style>
+    .checked {
+      color: orange;
+    }
+    </style>
+</head>
+<body>
+{% block content %}
+
+
+<div class="container">
+    <div class="header_section_top">
+       <div class="row">
+          <div class="col-sm-12">
+          </div>
+       </div>
+    </div>
+    <div>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                    <div style="min-width: 18rem;">
+                        <img src="{{movie.poster.url}}" height="400" width="300" alt="" >
+                    </div><br><br>
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <div>
+                        <h1>{{movie.movie_title}}</h1><br>
+                        <p><h3>Release date : {{movie.release_date}}</h3></p><br>
+                        <br>
+                        <h4>Actors : {{movie.actors}}</h4><br>
+                        <h4>Category : {{movie.category}}</h4><br>
+                        <p>Trailer link <i class="fa fa-share"></i>&nbsp;&nbsp;<a href="{{ movie.trailer_link }}" class="btn btn-link">{{ movie.trailer_link}}</a></p><br>
+                        <p>movie description</p>
+                        <h3>{{ movie.description }}</h3>
+                        <div class="single-explore-txt bg-theme-1">
+                            <h2><a href="#">{{i.movie_title}}</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">5.0</span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <a href="{% url 'filmapp:review' %}"> 10 ratings</a>
+                                <span class="explore-price-box">
+                                    <a href="{% url 'filmapp:review' %}">review</a>
+                                </span>
+                            </p>
+                            <a class="btn btn-danger" href="{% url 'filmapp:delete' movie.id %}">Delete</a>
+                            <a class="btn btn-warning" href="{% url 'filmapp:update' movie.id %}">Update</a>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<!--<div class="row">-->
+<!--    <div class="col-sm-12">-->
+<!--        <div class="subscription-input-group">-->
+<!--            <form class="d-flex" action="{% url 'filmapp:add_review' %}" method="get">-->
+<!--                {% csrf_token %}-->
+<!--                <input type="text" name="text" placeholder="movie_title"><br><br>-->
+<!--                <input type="text" name="rating" placeholder="description"><br><br>-->
+<!--                <input type="submit">-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="container-fluid gtco-news" id="news">
+    <div class="container">
+        <h2>Movies <button type="button" class="btn btn-link"><a href="{% url 'filmapp:add_review' %}">add review</a></button></h2><br>
+
+        <div class="owl-carousel owl-carousel2 owl-theme">
+            {% for review in review_list %}
+            <div>
+                <div class="card text-center"><img class="card-img-top" src="#" alt="">
+                    <div class="card-body text-left pr-0 pl-0">
+                        <h5>user : {{ review.user }}</h5>
+                        <h5>movie : {{ review.movie }}</h5>
+                        <p class="card-text">{{ review.text }}</p><br>
+                        <a href="{% url 'filmapp:index' %}">watch more movies<i class="fa fa-angle-right"></i></a><br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    <table class="table my_custom_table">
+        <thead class="my_custom_thead">
+            <tr>
+                <th>
+                    <a href="#"><h4 style="color:#E7CCCC;">Cinemaworld is available in</h4></a>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search items</title>
+</head>
+<body>
+{% block content %}
+
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    <table>
+        <b  style="color:#FFFFFF;">  results for :<b>   "{{query}}"</b></b>
+    </table>
+    </div>
+    <div class="container">
+        <div class="row mx-auto">
+            {% for i in movie %}
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <table class="table my_custom_table">
+                    <thead class="my_custom_thead">
+                        <tr>
+                            <th>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                                        <div style="min-width: 18rem;">
+                                            <img src="{{ i.poster.url }}" style="width: 300px;" alt="{{ i.movie_title }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                        <div style="color:#FFFFFF;">
+                                            <h1 class="my_prod_title">{{ i.movie_title }}</h1><br>
+                                            <p><h3>Release date : {{i.release_date}}</h3></p><br>
+                                            <p class="text-justify my_prod_text"><h4>{{ i.description }}</h4></p>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            {% empty %}
+                <div class="row mx-auto">
+                    <p class="text-center my_search_text"><h3 style="color:#FF2300;"> You have searched for :<b>  "{{query}}"  </b>There is no movie</h3></p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>
